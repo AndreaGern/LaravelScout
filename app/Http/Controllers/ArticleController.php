@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('articles.index', ['articles'=>Article::paginate(6)]);
+        $search = !empty($request->search) ? Article::search($request->search)->paginate(6) : Article::paginate(6);
+        return view('articles.index', ['articles'=>$search]);
     }
     public function show(Article $article)
     {

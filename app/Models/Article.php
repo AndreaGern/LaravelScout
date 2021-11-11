@@ -9,4 +9,20 @@ use Laravel\Scout\Searchable;
 class Article extends Model
 {
     use HasFactory, Searchable;
+
+    /**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */
+    public function toSearchableArray()
+    {
+        $array = [
+            'id' => $this->id,
+            'title'=>$this->title,
+            'all'=>'articles',
+        ];
+
+        return $array;
+    }
 }

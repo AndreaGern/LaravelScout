@@ -139,11 +139,11 @@ return [
         'fuzziness' => env('TNTSEARCH_FUZZINESS', false),
         'fuzzy' => [
             'prefix_length' => 2,
-            'max_expansions' => 50,
+            'max_expansions' => 2,
             'distance' => 2
         ],
         'asYouType' => false,
-        'searchBoolean' => env('TNTSEARCH_BOOLEAN', false),
+        'searchBoolean' => env('TNTSEARCH_BOOLEAN', true),
         'maxDocs' => env('TNTSEARCH_MAX_DOCS', 500),
     ],
 
